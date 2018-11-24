@@ -1,4 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SplashScreen>
-  <Path>SplashScreen/ATSM</Path>
+  <Image>
+    <Path>SplashScreen/ATSM</Path>
+  </Image>
+  
+  <Position>
+    <X>200</X>
+    <Y>10</Y>
+  </Position>
 </SplashScreen>
