@@ -32,7 +32,7 @@ namespace MadeItEasy_Tutorial
         }
         public ScreenManager()
         {
-            Dimensions = new Vector2(640, 480);
+            Dimensions = new Vector2(1280, 960);
             currentScreen = new SplashScreen();
             xmlGameScreenManager = new XmlManager<GameScreen>();
             xmlGameScreenManager.Type = currentScreen.Type;

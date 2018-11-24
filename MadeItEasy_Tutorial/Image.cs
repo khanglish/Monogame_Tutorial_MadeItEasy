@@ -80,7 +80,7 @@ namespace MadeItEasy_Tutorial
         public void Draw(SpriteBatch spriteBatch)
         {
             origin = new Vector2(SourceRect.Width / 2, SourceRect.Height / 2);
-            spriteBatch.Draw(Texture, Position, SourceRect, Color.White * Alpha, 0.0f, origin, Scale, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(Texture, Position, SourceRect, Color.White * Alpha, 0.0f, origin, Scale/2, SpriteEffects.None, 0.0f);
         }
     }
 }
