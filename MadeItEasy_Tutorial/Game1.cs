@@ -76,9 +76,9 @@ namespace MadeItEasy_Tutorial
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
-
+            spriteBatch.Begin();
             ScreenManager.Instance.Draw(spriteBatch);
-
+            spriteBatch.End();
             base.Draw(gameTime);
         }
     }

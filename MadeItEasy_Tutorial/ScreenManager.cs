@@ -19,6 +19,8 @@ namespace MadeItEasy_Tutorial
         public GraphicsDevice GraphicsDevice;
         public SpriteBatch SpriteBatch;
 
+        GameScreen currentScreen;
+
         public static ScreenManager Instance
         {
             get
@@ -31,22 +33,25 @@ namespace MadeItEasy_Tutorial
         public ScreenManager()
         {
             Dimensions = new Vector2(1920, 1080);
+            currentScreen = new SplashScreen();
+
         }
         public void LoadContent(ContentManager Content)
         {
             this.Content = new ContentManager(Content.ServiceProvider, "Content");
+            currentScreen.LoadContent();
         }
         public void UnloadContent()
         {
-            
+            currentScreen.UnloadContent();
         }
         public void Update(GameTime gameTime)
         {
-            
+            currentScreen.Update(gameTime);            
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            
+            currentScreen.Draw(spriteBatch);
         }
     }
 }
