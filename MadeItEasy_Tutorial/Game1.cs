@@ -41,7 +41,8 @@ namespace MadeItEasy_Tutorial
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            ScreenManager.Instance.GraphicsDevice = GraphicsDevice;
+            ScreenManager.Instance.SpriteBatch = spriteBatch;
             ScreenManager.Instance.LoadContent(Content);
         }
 

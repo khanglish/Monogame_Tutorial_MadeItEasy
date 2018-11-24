@@ -17,10 +17,9 @@ namespace MadeItEasy_Tutorial
         public ContentManager Content { private set; get; }
         XmlManager<GameScreen> xmlGameScreenManager;
 
+        GameScreen currentScreen;
         public GraphicsDevice GraphicsDevice;
         public SpriteBatch SpriteBatch;
-
-        GameScreen currentScreen;
 
         public static ScreenManager Instance
         {
@@ -33,7 +32,7 @@ namespace MadeItEasy_Tutorial
         }
         public ScreenManager()
         {
-            Dimensions = new Vector2(1920, 1080);
+            Dimensions = new Vector2(640, 480);
             currentScreen = new SplashScreen();
             xmlGameScreenManager = new XmlManager<GameScreen>();
             xmlGameScreenManager.Type = currentScreen.Type;

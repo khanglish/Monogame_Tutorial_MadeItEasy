@@ -1,11 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <SplashScreen>
   <Image>
-    <Path>SplashScreen/ATSM</Path>
+    <Path>SplashScreen/miku_hanhtay</Path>
+    <Position>
+      <X>200</X>
+      <Y>10</Y>
+    </Position>
   </Image>
-  
-  <Position>
-    <X>200</X>
-    <Y>10</Y>
-  </Position>
 </SplashScreen>
