@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MadeItEasy_Tutorial", "MadeItEasy_Tutorial\MadeItEasy_Tutorial.csproj", "{FD2E27E9-B3AD-46F5-80F4-E8F4F9D36A4D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FD2E27E9-B3AD-46F5-80F4-E8F4F9D36A4D}.Debug|x86.ActiveCfg = Debug|x86
+		{FD2E27E9-B3AD-46F5-80F4-E8F4F9D36A4D}.Debug|x86.Build.0 = Debug|x86
+		{FD2E27E9-B3AD-46F5-80F4-E8F4F9D36A4D}.Release|x86.ActiveCfg = Release|x86
+		{FD2E27E9-B3AD-46F5-80F4-E8F4F9D36A4D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD5DCEFB-C56A-490A-A4C8-A38487432959}
+	EndGlobalSection
+EndGlobal
