@@ -9,16 +9,15 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace MadeItEasy_Tutorial
 {
-    class SplashScreen : GameScreen
+    public class SplashScreen : GameScreen
     {
         Texture2D image;
-        string path;
+        public string Path;
 
         public override void LoadContent()
         {
             base.LoadContent();
-            path = "SplashScreen/ATSM";
-            image = content.Load<Texture2D>(path);
+            image = content.Load<Texture2D>(Path);
         }
 
         public override void UnloadContent()
