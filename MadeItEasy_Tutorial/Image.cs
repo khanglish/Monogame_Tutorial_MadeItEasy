@@ -17,21 +17,62 @@ namespace MadeItEasy_Tutorial
         public string Text, FontName, Path;
         public Vector2 Position, Scale;
         public Rectangle SourceRect;
+        public bool IsActive;
+
         [XmlIgnore]
         public Texture2D Texture;
         Vector2 origin;
         ContentManager content;
         RenderTarget2D renderTarget;
         SpriteFont font;
+        Dictionary<string, ImageEffect> effectList;
+        public string Effects;
 
+        public FadeEffect FadeEffect;
+
+        void SetEffect<T> (ref T effect)
+        {
+            if(effect == null)
+            {
+                effect = (T)Activator.CreateInstance(typeof(T));
+            }
+            else
+            {
+                (effect as ImageEffect).IsActive = true;
+                var obj = this;
+                (effect as ImageEffect).LoadContent(ref obj);
+            }
+            effectList.Add(effect.GetType().ToString().Replace("MadeItEasy_Tutorial.",""),(effect as ImageEffect));
+        }
+
+        void ActivateEffect(String effect)
+        {
+            if (effectList.ContainsKey(effect))
+            {
+                effectList[effect].IsActive = true;
+                var obj = this;
+                effectList[effect].LoadContent(ref obj);
+            }
+        }
+
+        public void DeActivateEffect(string effect)
+        {
+            if (effectList.ContainsKey(effect))
+            {
+                effectList[effect].IsActive = false;
+                effectList[effect].UnloadContent();
+            }
+        }
+        
         public Image()
         {
-            Path = Text = String.Empty;
+            Path = Text = Effects = String.Empty;
             FontName = "Font/Orbitron";
             Position = Vector2.Zero;
             Scale = Vector2.One;
             Alpha = 1.0f;
             SourceRect = Rectangle.Empty;
+            effectList = new Dictionary<string, ImageEffect>();
         }
         public void LoadContent()
         {
@@ -66,21 +107,40 @@ namespace MadeItEasy_Tutorial
             Texture = renderTarget;
 
             ScreenManager.Instance.GraphicsDevice.SetRenderTarget(null);
+
+            SetEffect<FadeEffect>(ref FadeEffect);
+
+            if(Effects != String.Empty)
+            {
+                string[] split = Effects.Split(':');
+                foreach(string item in split)
+                {
+                    ActivateEffect(item);
+                }
+            }
         }
         
         public void UnloadContent()
         {
             content.Unload();
+            foreach (var effect in effectList)
+            {
+                DeActivateEffect(effect.Key);
+            }
         }
         public void Update(GameTime gameTime)
         {
-
+            foreach(var effect in effectList)
+            {
+                if(effect.Value.IsActive)
+                    effect.Value.Update(gameTime);
+            }
         }
         
         public void Draw(SpriteBatch spriteBatch)
         {
             origin = new Vector2(SourceRect.Width / 2, SourceRect.Height / 2);
-            spriteBatch.Draw(Texture, Position, SourceRect, Color.White * Alpha, 0.0f, origin, Scale/2, SpriteEffects.None, 0.0f);
+            spriteBatch.Draw(Texture, Position, SourceRect, Color.White * Alpha, 0.0f, origin, Scale, SpriteEffects.None, 0.0f);
         }
     }
 }
