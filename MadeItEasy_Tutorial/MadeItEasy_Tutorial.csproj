@@ -64,6 +64,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Icon.ico" />
+    <Content Include="Load\ScreenManager.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Load\SplashScreen.xml">
       <SubType>Designer</SubType>
     </Content>
